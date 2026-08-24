@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AlbaraLinia" pageWidth="515" pageHeight="842" columnWidth="515" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bb000000-0000-0000-0000-000000000000">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="Default" isDefault="true" markup="html" fontName="ArialFamily" fontSize="8">
+		<conditionalStyle>
+			<conditionExpression><![CDATA["WenQuanYi Micro Hei Mono".equals($P{fontName})]]></conditionExpression>
+			<style fontName="WenQuanYi Micro Hei Mono"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="subreportEtiquetaLinia" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="fontName" class="java.lang.String"/>
+	<field name="comandaClient" class="java.lang.String"/>
+	<field name="codiPartidaArantzelaria" class="java.lang.String"/>
+	<field name="matriu" class="java.lang.String"/>
+	<field name="quantitat" class="java.lang.String"/>
+	<field name="denominacio" class="java.lang.String"/>
+	<field name="preu" class="java.lang.String"/>
+	<field name="referenciaNivellTecnic" class="java.lang.String"/>
+	<field name="etiquetes" class="java.util.List"/>
+	<detail>
+		<band height="48" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement x="50" y="0" width="415" height="1" forecolor="#CCCCCC" uuid="bb000000-0000-0000-0000-000000000099">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} > 1]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="1" width="154" height="11" uuid="bb000001-0000-0000-0000-000000000001"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comandaClient}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="265" y="1" width="250" height="11" uuid="bb000001-0000-0000-0000-000000000002"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiPartidaArantzelaria}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="13" width="50" height="11" uuid="bb000002-0000-0000-0000-000000000001"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matriu}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="50" y="13" width="60" height="11" uuid="bb000002-0000-0000-0000-000000000002">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantitat}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="120" y="13" width="310" height="11" uuid="bb000002-0000-0000-0000-000000000003"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{denominacio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="13" width="85" height="11" uuid="bb000002-0000-0000-0000-000000000004"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preu}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="25" width="404" height="11" uuid="bb000003-0000-0000-0000-000000000001"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{referenciaNivellTecnic}]]></textFieldExpression>
+			</textField>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="36" width="515" height="10" isRemoveLineWhenBlank="true" uuid="bb000004-0000-0000-0000-000000000001">
+					<printWhenExpression><![CDATA[!$F{etiquetes}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="fontName">
+					<subreportParameterExpression><![CDATA[$P{fontName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{etiquetes})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportEtiquetaLinia}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

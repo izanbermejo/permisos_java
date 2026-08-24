@@ -1,0 +1,12 @@
+/.settings
+/.classpath
+/.factorypath
+/.project
+/.springBeans
+/target
+/deploy/layers
+/deploy/.env
+/deploy/jdeps_list.txt
+/.idea
+/logs
+changes.txt

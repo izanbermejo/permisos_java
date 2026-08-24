@@ -1,0 +1,6 @@
+ARG IMATGE_JRE
+FROM ${IMATGE_JRE}
+COPY layers/application/ /spring_app/
+WORKDIR /spring_app
+EXPOSE 8085
+ENTRYPOINT ["java", "--enable-preview", "org.springframework.boot.loader.JarLauncher"]

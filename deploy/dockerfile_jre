@@ -1,0 +1,18 @@
+# Creació de la imatge amb una màquina virtual Java 14 amb els mòduls passats per paràmetres
+FROM eclipse-temurin:17-jdk-alpine AS builder
+ARG modules
+RUN apk add --no-cache binutils \
+	&& jlink --no-header-files --no-man-pages --compress=2 --strip-debug --add-modules ${modules},jdk.localedata,java.xml --output /custom_jre/
+
+# Copiem la JVM a la imatge d'Alpine
+FROM ames/alpine/fonts:3.12
+COPY --from=builder /custom_jre /custom_jre/
+
+# Copiem les dependències de l'aplicació Spring
+COPY layers/dependencies/ /spring_app/
+COPY layers/spring-boot-loader/ /spring_app/
+COPY layers/snapshot-dependencies/ /spring_app/
+
+ENV JAVA_VERSION=17-ea+14 \
+		JAVA_HOME=/custom_jre \
+    PATH="/custom_jre/bin:$PATH"

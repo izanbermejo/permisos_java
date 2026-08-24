@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  server:
+    image: ${IMATGE_APP}
+    container_name: ${NOM_CONTENIDOR}
+    restart: unless-stopped
+    build: 
+      args:
+        IMATGE_JRE: ${IMATGE_JRE}
+      context: .
+      dockerfile: dockerfile_app
+    volumes:
+      - /media/docsapps:/home/docsapps      
+    environment:
+      - ${SPRING_PROFILE}
+
+networks:
+  default:
+    external: true
+    name: ames_backend
