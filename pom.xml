@@ -9,11 +9,11 @@
 		<relativePath/>
 	</parent>
 	<groupId>ames</groupId>
-	<artifactId>comercial</artifactId>
+	<artifactId>permisos</artifactId>
 	<version>1.5.43</version>
-	<name>comercial</name>
+	<name>permisos</name>
 	<packaging>jar</packaging>
-	<description>API comercial</description>
+	<description>API permisos</description>
 	<properties>
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
@@ -219,7 +219,7 @@
     </dependencyManagement>
 	
 	<build>
-		<finalName>comercial</finalName>
+		<finalName>permisos</finalName>
 		<plugins>
 			<plugin>
     			<groupId>org.apache.maven.plugins</groupId>
