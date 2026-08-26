@@ -33,23 +33,6 @@ public class AplicacioRepositorySql implements AplicacioRepository{
     }
 
     @Override
-    public boolean estaAssignada(String nomAplicacio) {
-         var count = jdbcAmes.queryForObject("""
-                SELECT COUNT(*)
-                FROM organigrama_permisos.modul
-                WHERE nom_aplicacio = ?;
-                """, Integer.class, nomAplicacio);
-
-        count += jdbcAmes.queryForObject("""
-                SELECT COUNT(*)
-                FROM organigrama_permisos.parametre
-                WHERE nom_aplicacio = ?;
-                """, Integer.class, nomAplicacio);
-
-         return count != null && count > 0;
-    }
-
-    @Override
     public Optional<Aplicacio> find(String nomAplicacio) {
         return Optional.ofNullable(jdbcAmes.queryForObject("""
                         SELECT nom_aplicacio, descripcio

@@ -1,21 +1,20 @@
 package ames.permisos.aplicacions.internal.application.command;
 
 import ames.permisos.aplicacions.AplicacionsException;
-import ames.permisos.aplicacions.internal.infraestructure.AplicacioRepository;
 import ames.permisos.aplicacions.internal.infraestructure.AplicacioRepositorySql;
+import ames.permisos.moduls.internal.application.query.ObtenirModulsByAplicacio;
+import ames.permisos.parametres.internal.application.query.ObtenirParametresByAplicacio;
 import ames.permisos.server.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EliminarAplicacio {
 
-    @Autowired AplicacioRepository aplicacioRepository;
-
     public void executar(String nomAplicacio) {
-        var assignada = aplicacioRepository.estaAssignada(nomAplicacio);
+        var moduls = BeanUtils.getBean(ObtenirModulsByAplicacio.class).executar(nomAplicacio);
+        var parametres = BeanUtils.getBean(ObtenirParametresByAplicacio.class).executar(nomAplicacio);
 
-        if (assignada) throw new AplicacionsException.AplicacioAssignada();
+        if (!moduls.isEmpty() || !parametres.isEmpty()) throw new AplicacionsException.AplicacioAssignada();
         eliminar(nomAplicacio);
     }
 
