@@ -9,4 +9,11 @@ public class AplicacionsException {
             super(I18N.getLiteral("aplicacio_assignada"));
         }
     }
+
+    public static class NomAplicacioJaExisteix extends AppException {
+        public NomAplicacioJaExisteix() {
+            super(I18N.getLiteral("nom_aplicacio_ja_existeix"));
+        }
+    }
+
 }

@@ -1,6 +1,6 @@
 package ames.permisos.aplicacions;
 
-import ames.permisos.aplicacions.internal.application.command.ActualitzarAplicacio;
+import ames.permisos.aplicacions.internal.application.command.ModificarAplicacio;
 import ames.permisos.aplicacions.internal.application.command.CrearAplicacio;
 import ames.permisos.aplicacions.internal.application.command.EliminarAplicacio;
 import ames.permisos.aplicacions.internal.application.query.ObtenirAplicacioByNom;
@@ -47,6 +47,6 @@ public class EndPointAplicacions {
     @Path("{nomAplicacio}")
     @Consumes(MediaType.APPLICATION_JSON)
     public void modificarAplicacio(@PathParam("nomAplicacio") String nomAplicacio, Aplicacio aplicacio) {
-        BeanUtils.getBean(ActualitzarAplicacio.class).executar(nomAplicacio, aplicacio.descripcio());
+        BeanUtils.getBean(ModificarAplicacio.class).executar(nomAplicacio, aplicacio.descripcio());
     }
 }

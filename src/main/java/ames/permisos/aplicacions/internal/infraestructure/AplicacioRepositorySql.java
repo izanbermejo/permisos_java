@@ -34,10 +34,10 @@ public class AplicacioRepositorySql implements AplicacioRepository{
 
     @Override
     public Optional<Aplicacio> find(String nomAplicacio) {
-        return Optional.ofNullable(jdbcAmes.queryForObject("""
-                        SELECT nom_aplicacio, descripcio
-                        FROM organigrama_permisos.aplicacio
-                        WHERE nom_aplicacio = ?;
-                """, new AplicacioMapper(), nomAplicacio));
+        return jdbcAmes.query("""
+                SELECT nom_aplicacio, descripcio
+                FROM organigrama_permisos.aplicacio
+                WHERE nom_aplicacio = ?;
+            """, new AplicacioMapper(), nomAplicacio).stream().findFirst();
     }
 }
