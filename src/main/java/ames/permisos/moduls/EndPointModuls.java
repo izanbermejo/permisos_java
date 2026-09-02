@@ -1,12 +1,12 @@
 package ames.permisos.moduls;
 
-import ames.permisos.moduls.internal.application.command.CrearModul;
-import ames.permisos.moduls.internal.application.command.EliminarModul;
-import ames.permisos.moduls.internal.application.command.ModificarModul;
-import ames.permisos.moduls.internal.application.query.ObtenirModulByNom;
-import ames.permisos.moduls.internal.application.query.ObtenirModulsByAplicacio;
+import ames.permisos.moduls.internal.application.command.*;
+import ames.permisos.moduls.internal.application.query.*;
 import ames.permisos.moduls.internal.domain.Modul;
+import ames.permisos.organigrama.internal.domain.Empleat;
+import ames.permisos.organigrama.internal.domain.Funcio;
 import ames.permisos.server.BeanUtils;
+import ames.permisos.shared.ResultatEliminacio;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -36,9 +36,10 @@ public class EndPointModuls {
     @DELETE
     @Path("delete/{nomAplicacio}/{nomModul}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void eliminarAplicacio(@PathParam("nomAplicacio") String nomAplicacio,
-                                  @PathParam("nomModul") String nomModul) {
-        BeanUtils.getBean(EliminarModul.class).executar(nomAplicacio, nomModul);
+    public ResultatEliminacio eliminarModul(@PathParam("nomAplicacio") String nomAplicacio,
+                                            @PathParam("nomModul") String nomModul,
+                                            @QueryParam("confirmar") boolean confirmar) {
+        return BeanUtils.getBean(EliminarModul.class).executar(nomAplicacio, nomModul, confirmar);
     }
 
     @POST
@@ -54,5 +55,68 @@ public class EndPointModuls {
                                @PathParam("nomModul") String nomModul,
                                Modul modul) {
         BeanUtils.getBean(ModificarModul.class).executar(nomAplicacio, nomModul, modul.descripcio());
+    }
+
+    @GET
+    @Path("funcions/{nomAplicacio}/{nomModul}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Funcio> obtenirFuncionsByModul(@PathParam("nomAplicacio") String nomAplicacio,
+                                                    @PathParam("nomModul") String nomModul) {
+        return BeanUtils.getBean(ObtenirFuncionsDelModul.class).executar(nomAplicacio, nomModul);
+    }
+
+    @POST
+    @Path("funcio/{nomAplicacio}/{nomModul}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void assignarFuncio(@PathParam("nomAplicacio") String nomAplicacio,
+                               @PathParam("nomModul") String nomModul,
+                               Funcio funcio) {
+        BeanUtils.getBean(AssignarFuncio.class).executar(nomAplicacio, nomModul, funcio);
+    }
+
+    @DELETE
+    @Path("funcio/delete/{nomAplicacio}/{nomModul}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void eliminarFuncioDelModul(@PathParam("nomAplicacio") String nomAplicacio,
+                                       @PathParam("nomModul") String nomModul,
+                                       Funcio funcio) {
+        BeanUtils.getBean(EliminarFuncioDelModul.class).executar(nomAplicacio, nomModul, funcio);
+    }
+
+    @GET
+    @Path("empleats/{nomAplicacio}/{nomModul}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Empleat> obtenirEmpleatsByModul(@PathParam("nomAplicacio") String nomAplicacio,
+                                                @PathParam("nomModul") String nomModul) {
+        return BeanUtils.getBean(ObtenirEmpleatsDelModul.class).executar(nomAplicacio, nomModul);
+    }
+
+    @POST
+    @Path("empleat/{nomAplicacio}/{nomModul}/{idEmpleat}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void assignarEmpleat(@PathParam("nomAplicacio") String nomAplicacio,
+                                @PathParam("nomModul") String nomModul,
+                                @PathParam("idEmpleat") int idEmpleat) {
+        BeanUtils.getBean(AssignarEmpleat.class).executar(nomAplicacio, nomModul, idEmpleat);
+    }
+
+    @DELETE
+    @Path("empleat/delete/{nomAplicacio}/{nomModul}/{idEmpleat}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void eliminarEmpleatDelModul(@PathParam("nomAplicacio") String nomAplicacio,
+                                        @PathParam("nomModul") String nomModul,
+                                        @PathParam("idEmpleat") int idEmpleat) {
+        BeanUtils.getBean(EliminarEmpleatDelModul.class).executar(nomAplicacio, nomModul, idEmpleat);
+    }
+
+    @GET
+    @Path("empleats/tots/{nomAplicacio}/{nomModul}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Empleat> obtenirTotsElsEmpleatsByModul(@PathParam("nomAplicacio") String nomAplicacio,
+                                                @PathParam("nomModul") String nomModul) {
+        return BeanUtils.getBean(ObtenirTotsElsEmpleatsDelModul.class).executar(nomAplicacio, nomModul);
     }
 }

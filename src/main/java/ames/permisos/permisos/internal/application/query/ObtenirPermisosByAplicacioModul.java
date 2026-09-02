@@ -10,8 +10,7 @@ import java.util.List;
 @Component
 public class ObtenirPermisosByAplicacioModul {
 
-    @Autowired
-    PermisRepository permisRepo;
+    @Autowired PermisRepository permisRepo;
 
     public List<Permis> executar(String nomAplicacio, String nomModul) {
         return permisRepo.obtenirPermisosByAplicacioModul(nomAplicacio, nomModul);
