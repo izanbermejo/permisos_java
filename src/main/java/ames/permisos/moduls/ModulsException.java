@@ -15,4 +15,16 @@ public class ModulsException {
             super(I18N.getLiteral("nom_modul_ja_existeix"));
         }
     }
+
+    public static class FuncioModulJaExisteix extends AppException {
+        public FuncioModulJaExisteix() {
+            super(I18N.getLiteral("funcio_modul_ja_existeix"));
+        }
+    }
+
+    public static class EmpleatModulJaExisteix extends AppException {
+        public EmpleatModulJaExisteix() {
+            super(I18N.getLiteral("empleat_modul_ja_existeix"));
+        }
+    }
 }

@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface ModulRepository {
 
+    List<Modul> list();
     List<Modul> obtenirModulsByAplicacio(String nomAplicacio);
     void save(String nomAplicacio, String nomModul, String descripcio);
     void delete(String nomAplicacio, String nomModul);

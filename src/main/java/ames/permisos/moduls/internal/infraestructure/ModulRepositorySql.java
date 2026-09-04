@@ -40,6 +40,16 @@ public class ModulRepositorySql implements ModulRepository {
     }
 
     @Override
+    public List<Modul> list() {
+        return jdbcAmes.query(
+                """
+                        SELECT *
+                        FROM organigrama_permisos.modul;
+                """, new ModulMapper()
+        );
+    }
+
+    @Override
     public List<Modul> obtenirModulsByAplicacio(String nomAplicacio) {
         return jdbcAmes.query(
                 """

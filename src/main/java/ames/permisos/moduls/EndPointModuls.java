@@ -17,6 +17,12 @@ import java.util.Optional;
 public class EndPointModuls {
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Modul> obtenirModulso() {
+        return BeanUtils.getBean(ObtenirModuls.class).executar();
+    }
+
+    @GET
     @Path("aplicacions")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -72,7 +78,7 @@ public class EndPointModuls {
     public void assignarFuncio(@PathParam("nomAplicacio") String nomAplicacio,
                                @PathParam("nomModul") String nomModul,
                                Funcio funcio) {
-        BeanUtils.getBean(AssignarFuncio.class).executar(nomAplicacio, nomModul, funcio);
+        BeanUtils.getBean(AssignarFuncioModul.class).executar(nomAplicacio, nomModul, funcio);
     }
 
     @DELETE
@@ -99,7 +105,7 @@ public class EndPointModuls {
     public void assignarEmpleat(@PathParam("nomAplicacio") String nomAplicacio,
                                 @PathParam("nomModul") String nomModul,
                                 @PathParam("idEmpleat") int idEmpleat) {
-        BeanUtils.getBean(AssignarEmpleat.class).executar(nomAplicacio, nomModul, idEmpleat);
+        BeanUtils.getBean(AssignarEmpleatModul.class).executar(nomAplicacio, nomModul, idEmpleat);
     }
 
     @DELETE
