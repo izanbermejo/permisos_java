@@ -1,4 +1,4 @@
-package ames.permisos.permisos.internal;
+package ames.permisos.permisos;
 
 import ames.permisos.server.I18N;
 import ames.permisos.server.exception.AppException;

@@ -1,7 +1,7 @@
 package ames.permisos.permisos.internal.application.command;
 
 import ames.permisos.organigrama.internal.domain.Funcio;
-import ames.permisos.permisos.internal.PermisosException;
+import ames.permisos.permisos.PermisosException;
 import ames.permisos.permisos.internal.infraestructure.PermisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

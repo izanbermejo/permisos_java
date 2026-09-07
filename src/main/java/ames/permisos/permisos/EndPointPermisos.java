@@ -1,4 +1,4 @@
-package ames.permisos.permisos.internal;
+package ames.permisos.permisos;
 
 import ames.permisos.organigrama.internal.domain.Empleat;
 import ames.permisos.organigrama.internal.domain.Funcio;
