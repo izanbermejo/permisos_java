@@ -228,7 +228,7 @@ public class ParametreRepositorySql implements ParametreRepository {
                 .addValue("nomParametre", nomParametre);
 
         return jdbc.query("""
-                SELECT e.id, e.nom, e.cognoms, e.email, ep.valor, 'INDIVIDUAL' AS tipus_assignacio
+                SELECT e.id, e.nom, e.cognoms, e.email, ep.valor, 'EMPLEAT' AS tipus_assignacio
                 FROM organigrama_permisos.empleat_parametre ep
                 JOIN organigrama.empleats e
                     ON e.id = ep.id_empleat

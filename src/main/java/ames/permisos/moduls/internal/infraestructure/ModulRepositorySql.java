@@ -234,7 +234,7 @@ public class ModulRepositorySql implements ModulRepository {
                 .addValue("nomModul", nomModul);
 
         return jdbc.query("""
-                SELECT e.id, e.nom, e.cognoms, e.email, 'INDIVIDUAL' AS tipus_assignacio
+                SELECT e.id, e.nom, e.cognoms, e.email, 'EMPLEAT' AS tipus_assignacio
                 FROM organigrama_permisos.empleat_modul em
                 JOIN organigrama.empleats e
                     ON e.id = em.id_empleat
