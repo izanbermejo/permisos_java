@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JustificantComandaNormalitzat" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="30" bottomMargin="30" uuid="5e617717-b2be-4d60-a411-b893b78c45f3">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Default" isDefault="true" markup="html" fontName="ArialFamily" fontSize="10"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="listReferencies" class="java.lang.String"/>
+	<field name="data" class="java.lang.String"/>
+	<field name="client" class="java.lang.String"/>
+	<field name="listQuantitats" class="java.lang.String"/>
+	<field name="listPreusBruts" class="java.lang.String"/>
+	<field name="justificant" class="java.lang.String"/>
+	<field name="titolAdresa" class="java.lang.String"/>
+	<field name="titolReferencia" class="java.lang.String"/>
+	<field name="titolQuantitat" class="java.lang.String"/>
+	<field name="titolPreuBrut" class="java.lang.String"/>
+	<field name="titolDataSolicitada" class="java.lang.String"/>
+	<field name="titolDisponibilitatPrevista" class="java.lang.String"/>
+	<field name="pagina" class="java.lang.String"/>
+	<field name="listDisponibilitatsPrevistes" class="java.lang.String"/>
+	<field name="listDatesSolicitades" class="java.lang.String"/>
+	<field name="infoQuantitats" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<image hAlign="Left" isUsingCache="true">
+				<reportElement x="0" y="1" width="78" height="55" uuid="ebd87b15-c1ae-4c2a-be1a-bf7a476f11a9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["img/logo-ames.bmp"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="92" y="0" width="406" height="15" uuid="4d2034a5-6346-46e7-8948-1b138ae98f3b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMES GROUP SINTERING, S.A.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="92" y="15" width="406" height="1" uuid="46d67f97-03d6-4338-9f2d-a5ba595e54e9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#FF0905"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="92" y="16" width="160" height="31" uuid="78bcbb0e-b952-4569-a729-b0524dae8fc0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="WenQuanYi Micro Hei Mono" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ctra. Laureà Miró, 388
+08980 SANT FELIU DE LLOBREGAT
+(Barcelona) ESPAÑA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="16" width="160" height="40" uuid="bee13c3c-c2f2-4c97-90b8-c9d9d25c7505">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="WenQuanYi Micro Hei Mono" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Teléf: (+34) 93 685 51 11
+Fax  : (+34) 93 685 44 88
+email: comandes@ames.group]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="47" width="160" height="12" uuid="dcf616ae-1c1b-4dfd-9c71-058fdc64771f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="WenQuanYi Micro Hei Mono" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIF/VAT: ES A08382699]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="10" width="515" height="20" uuid="e33e4f3a-34d6-4d23-ad81-0f2ae0e2ab90"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="14" isBold="true"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{justificant}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="38">
+			<textField textAdjust="StretchHeight" isBlankWhenNull="false">
+				<reportElement mode="Opaque" x="0" y="20" width="515" height="18" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="8ee02dd7-ffce-48a1-9781-a5f4aac4e275"/>
+				<box topPadding="3" leftPadding="20" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Left">
+					<font isBold="false"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="1.1" spacingAfter="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{client}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" x="0" y="0" width="160" height="20" uuid="48d0f149-a25c-4bb6-98f5-a7578b42934d"/>
+				<textElement verticalAlignment="Bottom" markup="html">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolAdresa}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" x="160" y="0" width="354" height="20" uuid="27da1a4a-6f88-48f3-8c5b-a50de0b2b240"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="html">
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="65">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="30" width="100" height="30" uuid="c363dbe9-7d5e-4246-a60e-7b615d0fccdc"/>
+				<textElement>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{listReferencies}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="100" y="30" width="70" height="30" uuid="aeaf83ac-737a-4621-8334-0e5d78acc6b2"/>
+				<textElement textAlignment="Right">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{listQuantitats}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="170" y="30" width="100" height="30" uuid="9a2788e0-c2ba-4317-b4be-207550c7aca9"/>
+				<textElement textAlignment="Right">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{listPreusBruts}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="370" y="30" width="145" height="30" uuid="f3b312ae-12eb-4dad-8104-25ea83dae332"/>
+				<textElement textAlignment="Right">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{listDisponibilitatsPrevistes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="10" width="100" height="20" forecolor="#000000" backcolor="#DBDBDB" uuid="37e8f4e4-f48e-4e1d-ab71-6c0f005c6bca"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolReferencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="100" y="10" width="70" height="20" forecolor="#000000" backcolor="#DBDBDB" uuid="5f5143d7-1518-4f9f-a651-6811c4c48fc0"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolQuantitat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="170" y="10" width="100" height="20" forecolor="#000000" backcolor="#DBDBDB" uuid="2b293d3c-4aaf-4c2b-9fb8-249152c6a5a9"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolPreuBrut}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="370" y="10" width="144" height="20" forecolor="#000000" backcolor="#DBDBDB" uuid="22828e1d-78b7-4f20-bc04-1c6520263b51"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolDisponibilitatPrevista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="270" y="10" width="100" height="20" forecolor="#000000" backcolor="#DBDBDB" uuid="a05c6a15-0432-412c-a908-d6b9138c58ce"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolDataSolicitada}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="270" y="30" width="100" height="30" uuid="61cae9c7-7350-49ce-af50-2ae0e64e501a"/>
+				<textElement textAlignment="Right">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{listDatesSolicitades}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="8" width="514" height="14" uuid="0e264958-42b3-4cfd-aae2-7eaa9f068bda"/>
+				<textFieldExpression><![CDATA[$F{infoQuantitats}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30">
+			<line>
+				<reportElement x="0" y="5" width="515" height="1" uuid="ffa9e6fc-5545-4483-baec-defa528a15fd"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#FF0905"/>
+				</graphicElement>
+			</line>
+			<textField evaluationTime="Master">
+				<reportElement x="0" y="20" width="515" height="10" uuid="8c3f8e78-6db2-43c1-9487-88ebcc7d9abb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pagina} + " " + $V{MASTER_CURRENT_PAGE} + "/" + $V{MASTER_TOTAL_PAGES}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="6" width="515" height="14" uuid="8766c072-4cdb-4951-b205-534f7a8d54ea"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[R.M.Barcelona volum 27345 foli 120 full B-71390]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

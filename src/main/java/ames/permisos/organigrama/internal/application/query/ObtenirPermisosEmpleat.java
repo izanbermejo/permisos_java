@@ -145,9 +145,16 @@ public class ObtenirPermisosEmpleat {
                   AND id_empleat = :idEmpleat
             ),
             parametres_totals AS (
-                SELECT * FROM parametres_per_funcio
+                SELECT nom_parametre, valor
+                FROM parametres_per_empleat
                 UNION
-                SELECT * FROM parametres_per_empleat
+                SELECT pf.nom_parametre, pf.valor
+                FROM parametres_per_funcio pf
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM parametres_per_empleat pe
+                    WHERE pe.nom_parametre = pf.nom_parametre
+                )
             )
             SELECT nom_parametre, valor
             FROM parametres_totals
