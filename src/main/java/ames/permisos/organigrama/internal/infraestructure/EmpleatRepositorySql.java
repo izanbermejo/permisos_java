@@ -3,17 +3,21 @@ package ames.permisos.organigrama.internal.infraestructure;
 import ames.permisos.organigrama.internal.domain.Empleat;
 import ames.permisos.organigrama.internal.infraestructure.mapper.EmpleatMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Types;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class EmpleatRepositorySql implements EmpleatRepository {
 
     @Autowired NamedParameterJdbcTemplate jdbc;
+    private @Autowired JdbcTemplate jdbcAmes;
+
 
     @Override
     public List<Empleat> obtenirEmpleatsByCentDepFun(Integer idCentre, Integer idDepartament, Integer idFuncio) {
@@ -36,5 +40,15 @@ public class EmpleatRepositorySql implements EmpleatRepository {
         """, params, new EmpleatMapper());
 
         return empleats;
+    }
+
+    @Override
+    public Optional<Empleat> findByUsufab(long usufab) {
+        return jdbcAmes.query("""
+            SELECT e.id, e.nom, e.cognoms, e.email
+            FROM organigrama.empleats e
+            WHERE e.usufab = ?;
+        """, new EmpleatMapper(), usufab).stream().findFirst();
+
     }
 }

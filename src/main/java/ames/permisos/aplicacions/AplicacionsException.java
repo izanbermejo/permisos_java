@@ -16,4 +16,10 @@ public class AplicacionsException {
         }
     }
 
+    public static class AplicacioNoTrobadaPermisos extends AppException {
+        public AplicacioNoTrobadaPermisos() {
+            super(I18N.getLiteral("aplicacio_no_trobada_permisos"));
+        }
+    }
+
 }
